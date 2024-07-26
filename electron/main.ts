@@ -55,7 +55,6 @@ import { IpcMainEvent } from 'electron';
 import { BlockerIntegration } from './blocker/blocker';
 
 //tslint:disable-next-line:no-require-imports
-const pck = require('./package.json');
 
 // Module to control application life.
 const app = electron.app;
@@ -412,7 +411,7 @@ function onReady(): void {
     // );
 
     //tslint:disable-next-line: no-unsafe-any
-    const updaterUrl = `https://update.electronjs.org/hearmeneigh/fchat-rising/${process.platform}-${process.arch}/${pck.version}`;
+    const updaterUrl = `https://update.electronjs.org/hearmeneigh/fchat-rising/${process.platform}-${process.arch}/${app.getVersion()}`;
     if((process.env.NODE_ENV === 'production') && (process.platform !== 'darwin')) {
         electron.autoUpdater.setFeedURL({url: updaterUrl + (settings.beta ? '?channel=beta' : ''), serverType: 'json'});
         setTimeout(() => electron.autoUpdater.checkForUpdates(), 10000);
