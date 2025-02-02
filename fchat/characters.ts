@@ -73,6 +73,11 @@ class State implements Interfaces.State {
         Vue.set(char.overrides, type, value);
     }
 
+    onlineCharacters(): Character[]{
+        return Object.values(this.characters).filter((character): character is Character => character !== undefined);
+    }
+
+
     async resolveOwnProfile(): Promise<void> {
         await methods.fieldsGet();
 

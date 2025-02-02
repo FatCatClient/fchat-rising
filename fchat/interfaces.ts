@@ -173,6 +173,7 @@ export namespace Character {
 
         get(name: string): Character;
         setOverride(name: string, type: keyof CharacterOverrides, value: any): void;
+        onlineCharacters ():Character[]; 
     }
 
     export interface Character {
