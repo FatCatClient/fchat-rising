@@ -1,6 +1,6 @@
 <template>
     <sidebar id="user-list" :label="l('users.title')" icon="fa-users" :right="true" :open="expanded">
-        <tabs style="flex-shrink:0" :tabs="channel ? { 0: l('users.friends'), 1: l('users.members') } : !isConsoleTab ? { 0: l('users.friends'), 1: 'Profile'} : { 0: l('users.friends') }" v-model="tab"></tabs>
+        <tabs style="flex-shrink:0" :tabs="channel ? { 0: l('users.friends'), 1: l('users.members') } : !isConsoleTab ? { 0: l('users.friends'), 1: 'Profile'} : { 0: l('users.friends'), 1: l('users.title')}" v-model="tab"></tabs>
         <div class="users" style="padding-left:10px" v-show="tab === '0'">
             <h4>{{l('users.friends')}}</h4>
             <div v-for="character in friends" :key="character.name">
@@ -34,6 +34,21 @@
 
           <character-page :authenticated="true" :oldApi="true" :name="profileName" :image-preview="true" ref="characterPage"></character-page>
         </div>
+        <div v-if="isConsoleTab" style="flex:1;display:flex;flex-direction:column" class="profile" v-show="tab === '1'">
+            <div class="users" style="flex:1;padding-left:5px">
+                <!--<h4>{{l('users.memberCount', channel.sortedMembers.length)}} <a class="btn sort" @click="switchSort"><i class="fa fa-sort"></i></a></h4>-->
+                <div v-for="member in getAllCharacters()" :key="member.name">
+                    <user :character="member" :showStatus="true"></user>
+                </div>
+            </div>
+            <div class="input-group" style="margin-top:5px;flex-shrink:0">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><span class="fas fa-search"></span></div>
+                </div>
+                <input class="form-control" v-model="filter" :placeholder="l('filter')" type="text"/>
+            </div>
+        </div>
+
     </sidebar>
 </template>
 
@@ -104,6 +119,10 @@
 
         get channel(): Channel {
             return (<Conversation.ChannelConversation>core.conversations.selectedConversation).channel;
+        }
+        getAllCharacters(): Character[]{
+
+            return core.characters.onlineCharacters().slice().sort(this.sorter);
         }
 
         get isConsoleTab(): Boolean {
