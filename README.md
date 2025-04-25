@@ -1,10 +1,14 @@
+# ARCHIVED
+> [!WARNING]
+> This repository is only kept here for historical purposes. Please use [Horizon](https://horizn.moe/) or [Frolic](https://frolic-chat.github.io/) instead.
+> 
 # Download
-[Windows x64](https://github.com/hearmeneigh/fchat-rising/releases/latest/download/F-Chat-Rising-win-x64.exe) |
-[Windows arm64](https://github.com/hearmeneigh/fchat-rising/releases/latest/download/F-Chat-Rising-win-arm64.exe) |
-[MacOS M1](https://github.com/hearmeneigh/fchat-rising/releases/latest/download/F-Chat-Rising-macos-m1.dmg) |
-[MacOS Intel](https://github.com/hearmeneigh/fchat-rising/releases/latest/download/F-Chat-Rising-macos-intel.dmg) |
-[Linux x64](https://github.com/hearmeneigh/fchat-rising/releases/latest/download/F-Chat-Rising-linux-x64.AppImage) |
-[Linux arm64](https://github.com/hearmeneigh/fchat-rising/releases/latest/download/F-Chat-Rising-linux-arm64.AppImage) 
+Windows x64 |
+Windows arm64 |
+MacOS M1 |
+MacOS Intel |
+Linux x64 |
+Linux arm64
 
 # F-Chat Rising
 This repository contains a heavily customized version of the mainline F-Chat 3.0 client.
