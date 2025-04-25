@@ -3,12 +3,12 @@
 > This repository is only kept here for historical purposes. Please use [Horizon](https://horizn.moe/) or [Frolic](https://frolic-chat.github.io/) instead.
 > 
 # Download
-Windows x64 |
+~~Windows x64 |
 Windows arm64 |
 MacOS M1 |
 MacOS Intel |
 Linux x64 |
-Linux arm64
+Linux arm64~~
 
 # F-Chat Rising
 This repository contains a heavily customized version of the mainline F-Chat 3.0 client.
